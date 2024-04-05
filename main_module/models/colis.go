@@ -63,3 +63,13 @@ func GetAllColis(db *gorm.DB) ([]Colis, error) {
 	}
 	return all_colis, nil
 }
+
+// GetAllColis récupère tous les colis de la base de données associés à une zone donnée
+func GetColisFromZone(db *gorm.DB, zoneID int64) ([]Colis, error) {
+    var all_colis []Colis
+    result := db.Where("fk_zone = ?", zoneID).Find(&all_colis).Error
+    if result != nil {
+        return nil, result
+    }
+    return all_colis, nil
+}

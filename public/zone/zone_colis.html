@@ -13,6 +13,20 @@
         <p> Name : {{.Name}}</p>
         <p> Adresse : {{.Adresse}}</p>
         <p> Nombre Max de Colis : {{.NombreMaxColis}}</p>
+        <div id="colis-list">
+            <ul>
+                {{range .Colis}}
+                    <li>
+                        <p>Id : {{.Id}}</p>
+                        <p>Identifiant : {{.Identifiant}}</p>
+                        <p>Poids: {{.Poids}}</p>
+                        <p>Adresse: {{.Adresse}}</p>
+                        <p>Destination: {{.Destination}}</p>
+                        <p>Id Zone: {{.FkZone}}</p>
+                    </li>
+                {{end}}
+            </ul>
+        </div>
     </div>
 </body>
 </html>

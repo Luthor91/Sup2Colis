@@ -2,7 +2,6 @@ package models
 
 import (
 	"log"
-	"math"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -28,7 +27,7 @@ func ConnectToDatabase() *gorm.DB {
 	if err != nil {
 		log.Fatalf("Erreur de migration de la base de données: %v", err)
 	}
-	var zone Zone = Zone{Adresse: "Inconnu", Name: "Aucune zone défini", NombreMaxColis: math.MaxInt64}
+	var zone Zone = Zone{Adresse: "Inconnu", Name: "Aucune zone défini", NombreMaxColis: 20}
 
 	AddZone(db, &zone)
 

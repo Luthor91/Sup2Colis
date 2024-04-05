@@ -14,14 +14,22 @@ func getAllZone(c *fiber.Ctx) error {
 	db := models.ConnectToDatabase()
 	all_zones, err := models.GetAllZone(db)
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).SendString("Erreur lors de la récupération des produits")
+		return c.Status(fiber.StatusInternalServerError).SendString("Erreur lors de la récupération des zones")
 	}
 
+	for i := range all_zones {
+		// Appeler la fonction GetColisFromZone() pour chaque zone
+		colis, err := models.GetColisFromZone(db, int64(all_zones[i].Id))
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).SendString("Erreur lors de la récupération des colis")
+		}
+		all_zones[i].Colis = colis
+	}
 	// Préparer les données à passer au template HTML
 	data := models.ZoneData{
 		Liste_zone: all_zones,
 	}
-
+	
 	// Charger le template HTML
 	mapage := template.Must(template.ParseFiles("../../public/zone/liste_zone.html"))
 
@@ -48,6 +56,13 @@ func getZoneById(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(fiber.StatusNotFound).SendString("Zone non trouvé")
 	}
+
+	// Appeler la fonction GetColisFromZone() pour chaque zone
+	colis, err := models.GetColisFromZone(db, int64(zone.Id))
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).SendString("Erreur lors de la récupération des colis")
+	}
+	zone.Colis = colis
 
 	// Passer les données du produit au template HTML
 	mapage := template.Must(template.ParseFiles("../../public/zone/zone_colis.html"))

@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colis</title>
+    <title>Zones</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Zones</h1>
     <div id="zone-list">
         {{range .Liste_zone}}
-        <div class="zone">
-            <h2> Numéro Zone : {{.Id}}</h2>
-            <p> Name : {{.Name}}</p>
-            <p> Adresse : {{.Adresse}}</p>
-            <p> Nombre Max de Colis : {{.NombreMaxColis}}</p>
-        </div>
+            <div class="zone">
+                <h2>Numéro Zone : {{.Id}}</h2>
+                <p>Name : {{.Name}}</p>
+                <p>Adresse : {{.Adresse}}</p>
+                <p>Nombre Max de Colis : {{.NombreMaxColis}}</p>
+                <h3>Colis:</h3>
+                <ul>
+                    {{range .Colis}}
+                        <li>
+                            <p>Id : {{.Id}}</p>
+                            <p>Identifiant : {{.Identifiant}}</p>
+                            <p>Poids: {{.Poids}}</p>
+                            <p>Adresse: {{.Adresse}}</p>
+                            <p>Destination: {{.Destination}}</p> 
+                            <p>Id Zone: {{.FkZone}}</p>
+                        </li>
+                    {{end}}
+                </ul>
+            </div>
         {{end}}
     </div>
 </body>
