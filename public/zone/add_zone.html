@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une zone</title>
+</head>
+<body>
+    <h1>Ajouter une zone</h1>
+    <form action="/zone_colis/add" method="post">
+        <label for="name">Nom de la zone:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="adresse">Adresse de la zone:</label><br>
+        <input type="text" id="adresse" name="adresse" required><br>
+        <label for="nombreMaxColis">Nombre max de colis stockable :</label><br>
+        <input type="text" id="nombreMaxColis" name="nombreMaxColis" required><br>
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>

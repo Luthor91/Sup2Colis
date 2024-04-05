@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un produit</title>
+</head>
+<body>
+    <h1>Ajouter un produit</h1>
+    <form action="/colis/add" method="post">
+        <label for="identifiant">Identifiant du colis:</label><br>
+        <input type="text" id="identifiant" name="identifiant" required><br>
+        <label for="price">Poids du colis:</label><br>
+        <input type="text" id="poids" name="poids" required><br><br>
+        <label for="price">Adresse du colis:</label><br>
+        <input type="text" id="adresse" name="adresse" required><br><br>
+        <label for="price">Destination du colis:</label><br>
+        <input type="text" id="destination" name="destination" required><br><br>
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>

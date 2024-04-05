@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rechercher un colis par son identifiant</title>
+    </head>
+    <body>
+        <h1>Rechercher un colis par son identifiant</h1>
+        
+        <form id="search-form">
+            <label for="identifiant">Id du colis :</label>
+            <input type="text" id="identifiant" name="identifiant" required>
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <script>
+            document.getElementById('search-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Empêche le formulaire de soumettre normalement
+        
+                var identifiant = document.getElementById('identifiant').value;
+                window.location.href = "/colis/" + encodeURIComponent(identifiant);
+            });
+        </script>
+
+
+    </body>
+</html>

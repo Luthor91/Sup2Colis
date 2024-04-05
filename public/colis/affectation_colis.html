@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un colis</title>
+</head>
+<body>
+    <h1>Ajouter un colis</h1>
+    <form action="/colis/affect" method="post">
+        <label for="colis_id">Identifiant du colis:</label><br>
+        <input type="text" id="colis_id" name="colis_id" required><br>
+        <label for="zone_id">Zone à affecter:</label><br>
+        <input type="text" id="zone_id" name="zone_id" required><br><br>
+        
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>
